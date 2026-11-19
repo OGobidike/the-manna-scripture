@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How 62,188 verses entered Morning Manna, a Bible reading app for working people, told in eight leaves.">
+<meta property="og:title" content="The Scripture">
+<meta property="og:description" content="How 62,188 verses entered Morning Manna, told in eight leaves.">
+<meta property="og:image" content="img/scriptorium.jpg">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,-apple-system,'Segoe UI',sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>The Scripture</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Alegreya+SC:wght@400;700&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a reading desk. A short title block at the left, then the eight leaves of the carousel in one sideways strip
+   you turn through, with each leaf's scene washed into the page behind it and changing as you turn.
+   Day: vellum and iron-gall ink. Night: the same leaves by candlelight. */
+:root {
+  --vellum: #efe5cf;
+  --vellum-2: #f8f1df;
+  --ink: #2b2117;
+  --ink-soft: #5b4a37;
+  --rule: #c6b38b;
+  --gold: #7d560f;
+  --gold-leaf: #c4952d;
+  --shadow: 0 1px 0 rgba(43, 33, 23, 0.06), 0 14px 34px rgba(43, 33, 23, 0.16);
+  --paper: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 251, 238, 0.65), transparent 70%),
+           radial-gradient(ellipse 120% 60% at 50% 110%, rgba(122, 86, 38, 0.16), transparent 70%);
+  --veil-c: 0.14;
+  --veil-e: 0.36;
+  /* the leaves' own inks, which follow the same switch */
+  --s-ground: #efe5cf;
+  --s-panel: #f8f1df;
+  --s-ink: #2b2117;
+  --s-soft: #5b4a37;
+  --s-rule: #c6b38b;
+  --s-frame: #a58a52;
+  --s-gold: #7d560f;
+  --s-edge: #a87a1c;
+  --s-m1: #2f55b8;
+  --s-m2: #9c5505;
+  --s-rubric: #a4301d;
+  --s-green: #226a52;
+  --s-code: #f3e9d1;
+  --s-track: #d3c39d;
+  --s-veil: 0.15;
+  --font-display: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sc: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  --font-body: "Alegreya", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-label: "Alegreya SC", "Alegreya", Georgia, serif;
+  --w: min(84vw, 480px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --vellum: #16110b;
+    --vellum-2: #201910;
+    --ink: #ece1c8;
+    --ink-soft: #bba98a;
+    --rule: #4b3d27;
+    --gold: #e3b75c;
+    --gold-leaf: #d6a846;
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 14px 34px rgba(0, 0, 0, 0.5);
+    --paper: radial-gradient(ellipse 70% 45% at 50% -5%, rgba(255, 186, 92, 0.12), transparent 70%),
+             radial-gradient(ellipse 120% 60% at 50% 110%, rgba(0, 0, 0, 0.5), transparent 70%);
+    --veil-c: 0.16;
+    --veil-e: 0.34;
+    --s-ground: #16110b;
+    --s-panel: #201910;
+    --s-ink: #ece1c8;
+    --s-soft: #bba98a;
+    --s-rule: #4b3d27;
+    --s-frame: #6b5630;
+    --s-gold: #e3b75c;
+    --s-edge: #8f6312;
+    --s-m1: #8fb0ff;
+    --s-m2: #f1a64b;
+    --s-rubric: #ff8f73;
+    --s-green: #74d4a9;
+    --s-code: #0f0b06;
+    --s-track: #3d3120;
+    --s-veil: 0.17;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --vellum: #16110b;
+  --vellum-2: #201910;
+  --ink: #ece1c8;
+  --ink-soft: #bba98a;
+  --rule: #4b3d27;
+  --gold: #e3b75c;
+  --gold-leaf: #d6a846;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 14px 34px rgba(0, 0, 0, 0.5);
+  --paper: radial-gradient(ellipse 70% 45% at 50% -5%, rgba(255, 186, 92, 0.12), transparent 70%),
+           radial-gradient(ellipse 120% 60% at 50% 110%, rgba(0, 0, 0, 0.5), transparent 70%);
+  --veil-c: 0.16;
+  --veil-e: 0.34;
+  --s-ground: #16110b;
+  --s-panel: #201910;
+  --s-ink: #ece1c8;
+  --s-soft: #bba98a;
+  --s-rule: #4b3d27;
+  --s-frame: #6b5630;
+  --s-gold: #e3b75c;
+  --s-edge: #8f6312;
+  --s-m1: #8fb0ff;
+  --s-m2: #f1a64b;
+  --s-rubric: #ff8f73;
+  --s-green: #74d4a9;
+  --s-code: #0f0b06;
+  --s-track: #3d3120;
+  --s-veil: 0.17;
+  color-scheme: dark;
+}
+
+body { background: var(--vellum); color: var(--ink); font-family: var(--font-body); font-size: 1.12rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.page { box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding-block: 26px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+/* On a wide desk the title, the arrows and the links sit in a left column, and the leaves run off to the right */
+@media (min-width: 1000px) {
+  :root { --w: clamp(300px, calc((100vh - 150px) * 0.8), 540px); }
+  .page { grid-template-columns: minmax(280px, 350px) minmax(0, 1fr); column-gap: 48px; row-gap: 24px; align-items: start;
+    grid-template-areas: "head reader" "turn reader" "links reader" ". reader" "colo colo"; grid-template-rows: auto auto auto 1fr auto; }
+  .page .head { grid-area: head; padding-top: 70px; }
+  .page .reader { grid-area: reader; }
+  .page .turnbar { grid-area: turn; display: grid; grid-template-columns: auto auto minmax(0, 1fr); grid-template-areas: "prev next ." "where where where"; gap: 12px 12px; justify-items: start; }
+  .page #prev { grid-area: prev; }
+  .page #next { grid-area: next; }
+  .page .where { grid-area: where; min-width: 0; text-align: left; }
+  .page .links { grid-area: links; flex-direction: column; justify-content: flex-start; align-items: flex-start; }
+  .page .colophon { grid-area: colo; }
+  .page .strip { padding-inline: 8px calc(100% - var(--w) - 8px); scroll-padding-inline: 8px; }
+  .page .leafbox { scroll-snap-align: start; }
+}
+
+/* The backdrop: the scene behind the leaf you are reading, washed into the page and changing as you turn */
+.backdrop { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background-color: var(--vellum); }
+.backdrop .scenes { position: absolute; inset: 0;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,var(--veil-e)) 0%, rgba(0,0,0,var(--veil-c)) calc(50% - 420px), rgba(0,0,0,var(--veil-c)) calc(50% + 420px), rgba(0,0,0,var(--veil-e)) 100%);
+          mask-image: linear-gradient(90deg, rgba(0,0,0,var(--veil-e)) 0%, rgba(0,0,0,var(--veil-c)) calc(50% - 420px), rgba(0,0,0,var(--veil-c)) calc(50% + 420px), rgba(0,0,0,var(--veil-e)) 100%); }
+.backdrop img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; opacity: 0; transition: opacity 1.6s ease; }
+.backdrop img.on { opacity: 1; }
+.backdrop::after { content: ""; position: absolute; inset: 0; background-image: var(--paper), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .backdrop img { animation: drift 70s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: scale(1.02) translate3d(0, 0, 0); } to { transform: scale(1.09) translate3d(-1.2%, -0.8%, 0); } }
+}
+@media (max-width: 640px) { :root { --veil-c: 0.12; } }
+@media (max-width: 640px) and (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --veil-c: 0.14; } }
+@media (max-width: 640px) { :root[data-theme="dark"] { --veil-c: 0.14; } }
+
+/* Day and night switch: readers choose the vellum leaves or the candlelit ones */
+.daynight { position: fixed; z-index: 20; top: calc(env(safe-area-inset-top, 0px) + 12px); right: calc(env(safe-area-inset-right, 0px) + 12px);
+  display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-label); font-size: 0.95rem; letter-spacing: 0.04em;
+  color: var(--ink); background: var(--vellum-2); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 14px 6px 11px; box-shadow: var(--shadow); cursor: pointer; }
+.daynight:hover { border-color: var(--gold-leaf); }
+.daynight .glyph { color: var(--gold-leaf); font-size: 1.1rem; line-height: 1; }
+
+.head { display: flex; flex-direction: column; gap: 6px; max-width: 46rem; padding-top: 30px; }
+.eyebrow { margin: 0; font-family: var(--font-sc); font-size: 0.98rem; letter-spacing: 0.1em; color: var(--gold); }
+.name { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.3rem, 6.4vw, 4.1rem); line-height: 1.04; text-wrap: balance; color: var(--ink); }
+.lede { margin: 4px 0 0; max-width: 62ch; color: var(--ink-soft); }
+
+/* The strip of leaves */
+.reader { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.strip { position: relative; display: flex; gap: clamp(16px, 3vw, 34px); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+  padding-block: 14px 22px; padding-inline: calc(50% - var(--w) / 2); scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+.strip:focus-visible, .turn:focus-visible, .daynight:focus-visible, .links a:focus-visible { outline: 2px solid var(--gold-leaf); outline-offset: 3px; }
+.leafbox { flex: none; margin: 0; width: var(--w); max-width: 100%; aspect-ratio: 4 / 5; position: relative; overflow: hidden; scroll-snap-align: center;
+  background: var(--s-ground); box-shadow: var(--shadow); opacity: 0.6; transition: opacity 0.4s ease; }
+.leafbox.here { opacity: 1; }
+.leaf { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; transform-origin: 0 0; transform: scale(var(--k, 0.44)); }
+@media (prefers-reduced-motion: reduce) { .leafbox, .backdrop img { transition: none; } }
+
+.turnbar { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.turn { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+  color: var(--ink); background: var(--vellum-2); border: 1px solid var(--rule); box-shadow: var(--shadow); }
+.turn:hover:not(:disabled) { border-color: var(--gold-leaf); color: var(--gold); }
+.turn:disabled { opacity: 0.4; cursor: default; }
+.where { min-width: 15rem; text-align: center; font-family: var(--font-label); letter-spacing: 0.05em; color: var(--ink-soft); font-variant-numeric: lining-nums tabular-nums; }
+.where b { color: var(--ink); font-weight: 700; }
+
+.links { display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: center; padding-top: 6px; }
+.links a { color: var(--gold); text-decoration: underline; text-decoration-color: var(--gold-leaf); text-underline-offset: 4px; font-family: var(--font-label); letter-spacing: 0.04em; }
+.links a:hover { color: var(--ink); }
+.colophon { margin: 8px 0 0; text-align: center; font-size: 0.98rem; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 16px; }
+
+/* Print lays the leaves out one to a page, at their true size */
+@media print {
+  @page { size: 1080px 1350px; margin: 0; }
+  .backdrop, .daynight, .head, .turnbar, .links, .colophon { display: none !important; }
+  body { background: var(--s-ground); }
+  .page { max-width: none; padding: 0 !important; gap: 0; display: block !important; }
+  .page .reader { display: block; }
+  .page .strip { display: block; overflow: visible; padding: 0; }
+  .page .leafbox { width: 1080px; max-width: none; height: 1350px; aspect-ratio: auto; opacity: 1; box-shadow: none; break-after: page; }
+  .page .leafbox:last-child { break-after: auto; }
+  .page .leaf { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <button class="daynight" type="button" id="daynight"><span class="glyph" aria-hidden="true">&#9790;</span><span class="word">Night</span></button>
+
+  <div class="backdrop" aria-hidden="true">
+    <div class="scenes">
+      <img class="on" data-scene="ledger" src="img/bg/ledger.jpg" alt="" decoding="async">
+      <img data-scene="scriptorium" src="img/bg/scriptorium.jpg" alt="" decoding="async">
+      <img data-scene="locks" src="img/bg/locks.jpg" alt="" decoding="async">
+      <img data-scene="tomes" src="img/bg/tomes.jpg" alt="" decoding="async">
+    </div>
+  </div>
+
+  <header class="head">
+    <p class="eyebrow">A project chronicle · Morning Manna, Phase II</p>
+    <h1 class="name">The Scripture</h1>
+    <p class="lede">How 62,188 verses entered a Bible reading app for working people, told in eight leaves for LinkedIn. Swipe through them or use the arrows. The switch in the corner turns the leaves from day to night.</p>
+  </header>
+
+  <section class="reader" aria-label="The eight leaves">
+    <div class="strip" id="strip" tabindex="0" aria-label="The leaves, in order. Use the left and right arrow keys to turn them.">
+<figure class="leafbox" data-scene="ledger" data-name="Cover" aria-label="Leaf 1 of 8: Cover"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/ledger.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>A Project Chronicle</span>
+<span>Morning Manna · Phase II</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<img src="img/scriptorium.jpg" alt="A wizard's library at dawn: glowing letters rise from a great open book into brass pipes while a small owl looks on" style="display: block; width: 100%; height: 680px; object-fit: cover; object-position: 50% 46%; margin-top: 28px; box-sizing: border-box; border: 1px solid var(--s-edge)">
+<h1 style="margin: 38px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 122px; line-height: 1.02; color: var(--s-ink)">The Scripture</h1>
+<p style="margin: 24px 0 0; font-size: 43px; line-height: 1.28; font-style: italic; color: var(--s-gold)">How 62,188 verses entered Morning Manna, and why the pipeline turns bad pages away.</p>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 18px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 32px; font-weight: 700; color: var(--s-ink)">Francis (Oguguamakwa) Obidike</span>
+<span style="font-size: 27px; color: var(--s-soft)">Data Engineer · AI Training &amp; Model Evaluation</span>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; font-family: 'IM Fell English SC', Georgia, serif; font-size: 30px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Swipe</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="scriptorium" data-name="The Need" aria-label="Leaf 2 of 8: The Need"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/scriptorium.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>I · The Need</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<h2 style="margin: 34px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 82px; line-height: 1.06; color: var(--s-ink)">One short passage,<br><span style="font-style: italic; color: var(--s-gold)">every morning.</span></h2>
+<p style="margin: 26px 0 0; font-size: 36px; line-height: 1.34; color: var(--s-ink)">Morning Manna is a Bible reading app for working people. You set your wake time, and one short passage is waiting when you rise.</p>
+<p style="margin: 18px 0 0; font-size: 36px; line-height: 1.34; color: var(--s-ink)">For that promise to hold, the whole Bible has to be in the database first, and it has to be right.</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 28px">
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); padding: 16px 24px 18px; display: flex; flex-direction: column; gap: 0; background: var(--s-panel)">
+<span style="font-size: 84px; font-weight: 700; line-height: 1.05; color: var(--s-gold)">2</span>
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 30px; letter-spacing: 0.08em; color: var(--s-ink)">Translations</span>
+<span style="font-size: 27px; line-height: 1.25; color: var(--s-soft)">King James (1769) and American Standard (1901)</span>
+</div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); padding: 16px 24px 18px; display: flex; flex-direction: column; gap: 0; background: var(--s-panel)">
+<span style="font-size: 84px; font-weight: 700; line-height: 1.05; color: var(--s-gold)">66</span>
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 30px; letter-spacing: 0.08em; color: var(--s-ink)">Books</span>
+<span style="font-size: 27px; line-height: 1.25; color: var(--s-soft)">in each translation, in Bible order</span>
+</div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); padding: 16px 24px 18px; display: flex; flex-direction: column; gap: 0; background: var(--s-panel)">
+<span style="font-size: 84px; font-weight: 700; line-height: 1.05; color: var(--s-gold)">1,189</span>
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 30px; letter-spacing: 0.08em; color: var(--s-ink)">Chapters</span>
+<span style="font-size: 27px; line-height: 1.25; color: var(--s-soft)">in each, counted book by book</span>
+</div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); padding: 16px 24px 18px; display: flex; flex-direction: column; gap: 0; background: var(--s-panel)">
+<span style="font-size: 84px; font-weight: 700; line-height: 1.05; color: var(--s-gold)">62,188</span>
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 30px; letter-spacing: 0.08em; color: var(--s-ink)">Verses</span>
+<span style="font-size: 27px; line-height: 1.25; color: var(--s-soft)">across both translations</span>
+</div>
+</div>
+<p style="margin: 24px 0 0; font-size: 33px; line-height: 1.34; font-style: italic; color: var(--s-soft)">A reader should never open the app to a missing verse, or to the same verse twice.</p>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>2 / 8</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="locks" data-name="The Four Stations" aria-label="Leaf 3 of 8: The Four Stations"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/locks.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>II · The Four Stations</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<h2 style="margin: 34px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 82px; line-height: 1.06; color: var(--s-ink)">Four stations.<br><span style="font-style: italic; color: var(--s-gold)">No page skips one.</span></h2>
+<div style="display: flex; flex-direction: column; margin-top: 30px">
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 20px 26px 22px; display: grid; grid-template-columns: 78px minmax(0, 1fr); column-gap: 18px; align-items: center">
+<span style="font-size: 78px; font-weight: 700; line-height: 1; color: var(--s-gold)">1</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 44px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Extract</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">Fetch each translation once, from a pinned source.</span>
+</div>
+</div>
+<div style="display: flex; justify-content: center; margin: 12px 0"><svg aria-hidden="true" width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="var(--s-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2v17M5 12l8 8 8-8"></path></svg></div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 20px 26px 22px; display: grid; grid-template-columns: 78px minmax(0, 1fr); column-gap: 18px; align-items: center">
+<span style="font-size: 78px; font-weight: 700; line-height: 1; color: var(--s-gold)">2</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 44px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Transform</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">Tidy the book names and the text with pandas.</span>
+</div>
+</div>
+<div style="display: flex; justify-content: center; margin: 12px 0"><svg aria-hidden="true" width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="var(--s-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2v17M5 12l8 8 8-8"></path></svg></div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 20px 26px 22px; display: grid; grid-template-columns: 78px minmax(0, 1fr); column-gap: 18px; align-items: center">
+<span style="font-size: 78px; font-weight: 700; line-height: 1; color: var(--s-gold)">3</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 44px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Validate</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">Five rules. Break one and the run stops.</span>
+</div>
+</div>
+<div style="display: flex; justify-content: center; margin: 12px 0"><svg aria-hidden="true" width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="var(--s-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2v17M5 12l8 8 8-8"></path></svg></div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 20px 26px 22px; display: grid; grid-template-columns: 78px minmax(0, 1fr); column-gap: 18px; align-items: center">
+<span style="font-size: 78px; font-weight: 700; line-height: 1; color: var(--s-gold)">4</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 44px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Load</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">Everything lands in one transaction, or nothing does.</span>
+</div>
+</div>
+</div>
+<div style="margin-top: 26px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">One command runs all four</span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 12px 20px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 31px; color: var(--s-green)">python -m app.etl</span>
+</div>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>3 / 8</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="ledger" data-name="Extract" aria-label="Leaf 4 of 8: Extract"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/ledger.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>III · Extract</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<img src="img/sealed-tomes.jpg" alt="Two ancient tomes held under one glowing blue seal while a brass arm lifts a copy of their pages" style="display: block; width: 100%; height: 400px; object-fit: cover; object-position: 50% 52%; margin-top: 28px; box-sizing: border-box; border: 1px solid var(--s-edge)">
+<h2 style="margin: 28px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 78px; line-height: 1.06; color: var(--s-ink)">Fetch once,<br><span style="font-style: italic; color: var(--s-gold)">from a sealed shelf.</span></h2>
+<div style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">Pinned to one commit</span>
+<span style="font-size: 32px; line-height: 1.3; color: var(--s-ink)">The source files come from one fixed commit, so every run reads the very same pages.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">No half-downloads</span>
+<span style="font-size: 32px; line-height: 1.3; color: var(--s-ink)">A file arrives under a temporary name and is only renamed once it is whole.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">Kept on disk</span>
+<span style="font-size: 32px; line-height: 1.3; color: var(--s-ink)">The next run reads the saved file. It doesn’t download again.</span>
+</div>
+</div>
+<p style="margin: 18px 0 0; font-size: 31px; line-height: 1.34; font-style: italic; color: var(--s-soft)">Both translations are in the public domain.</p>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>4 / 8</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="tomes" data-name="Transform" aria-label="Leaf 5 of 8: Transform"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/tomes.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>IV · Transform</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<h2 style="margin: 34px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 90px; line-height: 1.06; color: var(--s-ink)">The scribe tidies<br><span style="font-style: italic; color: var(--s-gold)">every row.</span></h2>
+<p style="margin: 30px 0 0; font-size: 39px; line-height: 1.34; color: var(--s-ink)">Each source spells things its own way. Before a row is kept, pandas brings it into the app’s own form.</p>
+<div style="display: grid; grid-template-columns: minmax(0, 1.25fr) 64px minmax(0, 1fr); gap: 18px 10px; margin-top: 34px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-soft)">As it arrives</span><span></span><span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-soft)">As it is kept</span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 18px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 33px; white-space: pre; color: var(--s-rubric)">"II Kings"</span>
+<span style="display: flex; align-items: center; justify-content: center; color: var(--s-gold)"><svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg></span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 18px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 33px; white-space: pre; color: var(--s-green)">"2 Kings"</span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 18px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 33px; white-space: pre; color: var(--s-rubric)">"Revelation of John"</span>
+<span style="display: flex; align-items: center; justify-content: center; color: var(--s-gold)"><svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg></span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 18px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 33px; white-space: pre; color: var(--s-green)">"Revelation"</span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 18px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 33px; white-space: pre; color: var(--s-rubric)">"[but]  he "</span>
+<span style="display: flex; align-items: center; justify-content: center; color: var(--s-gold)"><svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg></span>
+<span style="box-sizing: border-box; border: 1px solid var(--s-rule); background: var(--s-code); padding: 18px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 33px; white-space: pre; color: var(--s-green)">"but he"</span>
+</div>
+<div style="margin-top: 38px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">Rows that can’t be used are set aside and counted</span>
+<span style="font-size: 36px; line-height: 1.32; color: var(--s-ink)">An unknown book, a chapter or verse that isn’t a number, or a verse with no text.</span>
+</div>
+<p style="margin: 28px 0 0; font-size: 35px; line-height: 1.34; font-style: italic; color: var(--s-soft)">Then every row is sorted in Bible order: book, chapter, verse.</p>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>5 / 8</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="scriptorium" data-name="Validate" aria-label="Leaf 6 of 8: Validate"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/scriptorium.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>V · Validate</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<img src="img/five-locks.jpg" alt="A brass gate crowned with five glowing green locks: a river of bright pages flows through while one red page is held aside" style="display: block; width: 100%; height: 430px; object-fit: cover; object-position: 50% 30%; margin-top: 28px; box-sizing: border-box; border: 1px solid var(--s-edge)">
+<h2 style="margin: 26px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 78px; line-height: 1.06; color: var(--s-ink)">Five locks.<br><span style="font-style: italic; color: var(--s-gold)">Fail loudly.</span></h2>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px">
+<div style="display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 16px; align-items: baseline">
+<span style="font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--s-green)">1</span>
+<span style="font-size: 37px; line-height: 1.26; color: var(--s-ink)">All 66 books are present.</span>
+</div>
+<div style="display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 16px; align-items: baseline">
+<span style="font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--s-green)">2</span>
+<span style="font-size: 37px; line-height: 1.26; color: var(--s-ink)">Every book has its right number of chapters.</span>
+</div>
+<div style="display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 16px; align-items: baseline">
+<span style="font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--s-green)">3</span>
+<span style="font-size: 37px; line-height: 1.26; color: var(--s-ink)">No verse is empty.</span>
+</div>
+<div style="display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 16px; align-items: baseline">
+<span style="font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--s-green)">4</span>
+<span style="font-size: 37px; line-height: 1.26; color: var(--s-ink)">No verse appears twice.</span>
+</div>
+<div style="display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 16px; align-items: baseline">
+<span style="font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--s-green)">5</span>
+<span style="font-size: 37px; line-height: 1.26; color: var(--s-ink)">Chapter and verse numbers start at 1.</span>
+</div>
+</div>
+<p style="margin: 20px 0 0; font-size: 31px; line-height: 1.34; font-style: italic; color: var(--s-soft)">Both translations pass the gate before the database is touched. If a rule breaks, the run stops and names it.</p>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>6 / 8</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="locks" data-name="Load" aria-label="Leaf 7 of 8: Load"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/locks.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>VI · Load</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<img src="img/the-ledger.jpg" alt="A vast round library where glowing pages glide to their places on the shelves while a quill writes in a great ledger by itself" style="display: block; width: 100%; height: 400px; object-fit: cover; object-position: 50% 58%; margin-top: 28px; box-sizing: border-box; border: 1px solid var(--s-edge)">
+<h2 style="margin: 26px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 78px; line-height: 1.06; color: var(--s-ink)">All of it lands,<br><span style="font-style: italic; color: var(--s-gold)">or none of it.</span></h2>
+<div style="display: flex; flex-direction: column; gap: 13px; margin-top: 22px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">One transaction</span>
+<span style="font-size: 34px; line-height: 1.3; color: var(--s-ink)">The books, both translations, every verse and the 30-day reading plan go in together.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">Safe to run twice</span>
+<span style="font-size: 34px; line-height: 1.3; color: var(--s-ink)">Rows are upserted, 5,000 verses at a time. A repeat run changes nothing, and a corrected verse replaces the old text.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">The ledger</span>
+<span style="font-size: 34px; line-height: 1.3; color: var(--s-ink)">Each run is written down: its status, the rows read, loaded and turned away, and any error. Even a crash leaves a line.</span>
+</div>
+</div>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>7 / 8</span>
+<svg aria-hidden="true" width="48" height="22" viewBox="0 0 48 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h42M35 3l9 8-9 8"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+<figure class="leafbox" data-scene="tomes" data-name="Three Habits" aria-label="Leaf 8 of 8: Three Habits"><div class="leaf">
+<div style="position: relative; overflow: hidden; width: 1080px; height: 1350px; box-sizing: border-box; padding: 28px; background: var(--s-ground); color: var(--s-ink); font-family: 'Alegreya', Georgia, serif; font-size: 38px; line-height: 1.35; font-variant-numeric: lining-nums">
+<img src="img/bg/tomes.jpg" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; opacity: var(--s-veil)">
+<div style="position: relative; width: 100%; height: 100%; box-sizing: border-box; border: 1px solid var(--s-frame); padding: 36px 56px 34px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IM Fell English SC', Georgia, serif; font-size: 27px; letter-spacing: 0.08em; color: var(--s-gold)">
+<span>Morning Manna</span>
+<span>VII · Three Habits</span>
+</div>
+<div style="height: 1px; background: var(--s-rule); margin-top: 14px"></div>
+<h2 style="margin: 34px 0 0; font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 82px; line-height: 1.06; color: var(--s-ink)">Three habits<br><span style="font-style: italic; color: var(--s-gold)">worth keeping.</span></h2>
+<div style="display: flex; flex-direction: column; gap: 16px; margin-top: 28px">
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 18px 24px 20px; display: grid; grid-template-columns: 58px minmax(0, 1fr); column-gap: 16px; align-items: start">
+<span style="font-size: 62px; font-weight: 700; line-height: 1; color: var(--s-gold)">1</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 37px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Check before you write</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">The gate stands before the load, so bad data never reaches a reader.</span>
+</div>
+</div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 18px 24px 20px; display: grid; grid-template-columns: 58px minmax(0, 1fr); column-gap: 16px; align-items: start">
+<span style="font-size: 62px; font-weight: 700; line-height: 1; color: var(--s-gold)">2</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 37px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Make it safe to run again</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">A retry can never double a verse.</span>
+</div>
+</div>
+<div style="box-sizing: border-box; border: 1px solid var(--s-edge); background: var(--s-panel); padding: 18px 24px 20px; display: grid; grid-template-columns: 58px minmax(0, 1fr); column-gap: 16px; align-items: start">
+<span style="font-size: 62px; font-weight: 700; line-height: 1; color: var(--s-gold)">3</span>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 37px; letter-spacing: 0.06em; line-height: 1.15; color: var(--s-ink)">Leave a record</span>
+<span style="font-size: 33px; line-height: 1.28; color: var(--s-soft)">Each run says what it read, what it kept and what it turned away.</span>
+</div>
+</div>
+</div>
+<p style="margin: 28px 0 0; font-size: 34px; line-height: 1.34; color: var(--s-ink)">19 tests guard the scribe, the gate and the load. Everything later in Morning Manna stands on these verses: the morning passage, the app, and search by meaning.</p>
+<div style="margin-top: 24px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'IM Fell English SC', Georgia, serif; font-size: 28px; letter-spacing: 0.08em; color: var(--s-gold)">The code is open</span>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-ligatures: none; font-size: 30px; color: var(--s-green)">github.com/OGobidike/Morning-Manna</span>
+</div>
+<p style="margin: 26px 0 0; font-size: 42px; line-height: 1.34; font-style: italic; color: var(--s-gold)">What do you check before you trust a dataset?</p>
+<div style="flex: 1"></div>
+<div style="height: 1px; background: var(--s-rule)"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 27px; color: var(--s-soft)">
+<span>Francis Obidike · Morning Manna</span>
+<div style="display: flex; align-items: center; gap: 14px; font-weight: 500; letter-spacing: 0.06em; color: var(--s-gold)">
+<span>8 / 8</span>
+</div>
+</div>
+</div>
+</div>
+</div></figure>
+    </div>
+  </section>
+
+  <div class="turnbar">
+      <button class="turn" type="button" id="prev" aria-label="Previous leaf">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 5l-7 7 7 7"></path></svg>
+      </button>
+      <span class="where" id="where" aria-live="polite"><b>Leaf 1 of 8</b> · Cover</span>
+      <button class="turn" type="button" id="next" aria-label="Next leaf">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5l7 7-7 7"></path></svg>
+      </button>
+  </div>
+
+  <nav class="links" aria-label="More of this project">
+    <a href="https://github.com/OGobidike/Morning-Manna">Morning Manna on GitHub</a>
+    <a href="https://github.com/OGobidike/Morning-Manna/tree/HEAD/backend/app/etl">The pipeline’s code</a>
+  </nav>
+
+  <p class="colophon">Made by Francis (Oguguamakwa) Obidike · Data Engineer · AI Training &amp; Model Evaluation</p>
+</main>
+
+<script>
+/* Day and night switch, remembered on this device */
+(function () {
+  var root = document.documentElement, btn = document.getElementById('daynight');
+  if (!btn) return;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function isDark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : !!(mq && mq.matches); }
+  function label() {
+    var dark = isDark();
+    btn.querySelector('.glyph').textContent = dark ? '☀' : '☾';
+    btn.querySelector('.word').textContent = dark ? 'Day' : 'Night';
+    btn.setAttribute('aria-label', dark ? 'Show the day leaves' : 'Show the night leaves');
+  }
+  try { var saved = localStorage.getItem('leaf-theme'); if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved); } catch (e) {}
+  label();
+  btn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('leaf-theme', next); } catch (e) {}
+    label();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener('change', label);
+})();
+
+/* Turning the leaves: fit each one to its box, follow the one in the middle, and change the scene behind it */
+(function () {
+  var strip = document.getElementById('strip');
+  if (!strip) return;
+  var boxes = Array.prototype.slice.call(strip.querySelectorAll('.leafbox'));
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.backdrop img'));
+  var where = document.getElementById('where'), prev = document.getElementById('prev'), next = document.getElementById('next');
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var current = -1;
+  function fit() { boxes.forEach(function (b) { b.style.setProperty('--k', String(b.clientWidth / 1080)); }); }
+  function show(i) {
+    if (i === current) return;
+    current = i;
+    var box = boxes[i], scene = box.getAttribute('data-scene');
+    scenes.forEach(function (im) { im.classList.toggle('on', im.getAttribute('data-scene') === scene); });
+    boxes.forEach(function (b, j) { b.classList.toggle('here', j === i); });
+    where.innerHTML = '<b>Leaf ' + (i + 1) + ' of ' + boxes.length + '</b> · ' + box.getAttribute('data-name');
+    prev.disabled = i === 0;
+    next.disabled = i === boxes.length - 1;
+  }
+  /* Where a leaf rests: the first leaf's own offset (the middle on a phone, the left edge on a wide desk) */
+  function rest() { return boxes[0].offsetLeft; }
+  function nearest() {
+    var x = strip.scrollLeft + rest(), best = 0, gap = Infinity;
+    boxes.forEach(function (b, j) { var d = Math.abs(b.offsetLeft - x); if (d < gap) { gap = d; best = j; } });
+    return best;
+  }
+  /* While a button or key is turning the leaves, the leaf it is heading for stays current,
+     so quick presses each count; a swipe by hand follows the leaf nearest the middle. */
+  var aim = null, aimTimer = 0;
+  function go(i) {
+    i = Math.max(0, Math.min(boxes.length - 1, i));
+    var b = boxes[i];
+    aim = i;
+    clearTimeout(aimTimer);
+    aimTimer = setTimeout(function () { aim = null; show(nearest()); }, 1200);
+    strip.scrollTo({ left: b.offsetLeft - rest(), behavior: calm ? 'auto' : 'smooth' });
+    show(i);
+  }
+  var tick = 0;
+  strip.addEventListener('scroll', function () {
+    if (tick) return;
+    tick = requestAnimationFrame(function () {
+      tick = 0;
+      var n = nearest();
+      if (aim !== null) { if (n === aim) { aim = null; clearTimeout(aimTimer); } return; }
+      show(n);
+    });
+  }, { passive: true });
+  prev.addEventListener('click', function () { go(current - 1); });
+  next.addEventListener('click', function () { go(current + 1); });
+  strip.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+  });
+  boxes.forEach(function (b, j) { b.addEventListener('click', function () { if (j !== current) go(j); }); });
+  window.addEventListener('resize', function () { fit(); });
+  fit();
+  show(0);
+})();
+</script>
+
+</body>
+</html>
